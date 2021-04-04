@@ -1,0 +1,8 @@
+ip addr add dev eth0 88.1.2.2/8
+ip addr add dev eth1 193.136.2.1/24
+ip link set dev eth0 up
+ip link set dev eth1 up
+ip route change 88.0.0.0/8 via 88.1.2.1 dev eth0
+ip route add 193.136.1.0/24 via 193.136.2.2 dev eth1
+
+/etc/init.d/bind start

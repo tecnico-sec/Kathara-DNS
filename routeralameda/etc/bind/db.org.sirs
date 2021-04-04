@@ -1,0 +1,15 @@
+$TTL    60000
+@               IN      SOA     dns.sirs.org.    root.dns.sirs.org. (
+                        2021040501 ; serial
+                        28 ; refresh
+                        14 ; retry
+                        3600000 ; expire
+                        0 ; negative cache ttl
+                        )
+@               IN      NS      dns.sirs.org.
+dns             IN      A       193.136.2.1
+tagus           IN      NS      dns.tagus
+dns.tagus       IN      A       193.136.1.1
+alameda           IN      NS      dns.alameda
+dns.alameda         IN      NS      193.136.2.1
+pc1		IN	A	193.136.1.3

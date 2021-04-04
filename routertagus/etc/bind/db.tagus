@@ -1,0 +1,13 @@
+$TTL    60000
+@               IN      SOA     dns.tagus.sirs.org.    root.dns.tagus.sirs.org. (
+                        2021040501 ; serial
+                        28 ; refresh
+                        14 ; retry
+                        3600000 ; expire
+                        0 ; negative cache ttl
+                        )
+@               IN      NS      dns.tagus.sirs.org.
+dns             IN      A       193.136.1.1
+link            IN      A       193.136.2.1
+pc1             IN      A       193.136.1.3
+labpc           IN      CNAME   pc1

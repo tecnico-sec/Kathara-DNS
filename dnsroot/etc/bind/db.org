@@ -1,0 +1,14 @@
+$TTL   60000
+@               IN      SOA     dns.org.    root.dns.org. (
+                        2021040501 ; serial
+                        28800 ; refresh
+                        14400 ; retry
+                        3600000 ; expire
+                        0 ; negative cache ttl
+                        )
+@                   IN      NS      dns.org.
+dns.org.              IN      A       88.8.8.8
+
+sirs            IN      NS      dns.sirs.org.
+dns.sirs     IN      A       193.136.2.1
+gnu IN A 209.51.188.148
