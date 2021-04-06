@@ -1,39 +1,50 @@
-LETI 2020/21 | Segurança Informática em Redes e Sistemas
+Instituto Superior Técnico, Universidade de Lisboa
+
+**Segurança Informática em Redes e Sistemas**
+
+# Guia de Laboratório - *Kathará DNS*
+
+## Objetivo
+
+O objetivo deste laboratório é criar uma pequena rede com DNS (*Domain Name System*) para  permitir a tradução de nomes de domínio em endereços IP.
+
+Pretende-se também:
+
+- Aprender a gerir interações entre servidores de DNS;
+- Aprender o comando `dig` para diagnosticar o protocolo DNS;
+- Aprender a configurar DNS em clientes `resolvd` e servidores `BIND`;
+- Demonstrar um ataque baseado em DNS.
 
 ---
 
-# Guia de Laboratório 5 - Kathara-Firewall
+## Exercício 1 - configuração do DNS
 
-## Objectivo
+Neste exercício vamos observar uma pequena rede com DNS (*Domain Name System*).
+O DNS é um protocolo que permite, a partir de nomes de domínios (*domain names*), obter informação relativa a esses domínios, por exemplo, endereços IPs, nomes de servicos internos (p.ex: *email*), texto arbitrário, etc.
 
-O objetivo deste laboratório consiste em criar uma pequena rede de DNS e entender como gerir interações entre servidores de DNS.
+O DNS é um protocolo hierárquico, em que temos domínios de topo, como `.org`. `.com`, `.pt`; e que cada servidor de nomes (*nameserver*) de domínio de topo tem entradas sobre nomes dentro dessa zona (p.ex: `foo.org` tem o endereço IP `1.2.3.4`) ou para *nameservers* responsáveis pelos subdomínios (p.ex: podemos ter um servidor responsável por `*.sirs.org`, nesse caso o nameserver de `*.org` terá uma entrada a dizer quem é o responsável pelo subdomínio `*.sirs.org`).
 
-Aprender a usar o comando dig para diagnosticar o protocolo DNS.
+Neste exercício, temos uma rede pré-configurada, em que temos 2 servidores de DNS dentro da rede do Técnico, cada um é responsável pelos domínios `*.tagus.sirs.org` e `*.alameda.sirs.org`.
+Há ainda um servidor central responsável por `*.sirs.org` que informa que cada um desses servidores é responsável por cada subdomínio. 
+Temos depois o `pc1` e `pc2`, ligados em localizações diferentes na rede.
 
-Aprender a configurar DNS em clientes (resolvd) e servidores (BIND).
+1. Desenhe o diagrama da rede com os endereços IP de todas as interfaces de rede e ligações entre elas, com base nos ficheiros `lab.conf` e nos ficheiros `.startup`.
+Indique as subredes existentes e qual a subrede de internet.
 
-Mostrar um ataque baseado em DNS.
+2. O `pc1`, que se encontra ligado ao `routertagus`, já tem o DNS configurado corretamente. 
+Vamos tentar fazer alguns pedidos de DNS e observar o que acontece. 
+Para isso corra:
 
-## Exercício 1 - DNS setup
-
-Neste exericio vamos observar uma pequena rede com DNS (Domain Name System) - um protocolo que permite a traducao entre domain names (nomes de dominios) e informacao relative a esses dominios (iex: enderecos ips, nomes de servicos internos (iex: mail, dns), texto arbitrario). 
-O DNS e um protocolo hierarquico, em que temos dominios de topo (iex: *.org, *.com, *.pt), e que cada nameserver de dominio de topo tem entradas para dados sobre nomes dentro dessa zona (iex: foo.org tem o endereco ip 1.2.3.4) ou para nameservers responsaveis pelos subdominios (iex: podemos ter um nameserver responsavel por *.sirs.org, nesse caso o nameserver de *.org tera uma entrada a dizer quem e responsavel pelo subdominio *.sirs.org).
-
-Neste exercicio, temos uma rede preconfigurada, em que temos 2 servidores de DNS dentro da rede do tecnico, cada um e responsavel pelos dominios *.tagus.sirs.org e *.alameda.sirs.org. Ha ainda um servidor central responsavel por *.sirs.org que informa que cada um desses name servers e responsavel por cada subdominio. Temos depois o pc1 e pc2 ligado em localizacoes diferentes na rede. 
-
-1. Desenhe o diagrama da rede com os enderecos ips de todas as interfaces de rede e ligacoes entre elas, com base nos lab.conf e nos ficheiros .startup. Indique as subredes existentes e qual a subrede de internet.
-
-2. O pc1, que se encontra ligado ao routertagus, ja tem o DNS configurado corretamente. Vamos tentar fazer alguns pedidos de DNS e observar o que acontece. Para isso corra:
-
-```
+```bash
 # No pc1
 dig +trace gnu.org
 ```
 
-Observe os pedidos e resposta de DNS efetuados e indique que tipo de dados consegue encontrar sobre gnu.org e em quais nameservers.
+Observe os pedidos e resposta de DNS efetuados e indique que tipo de dados consegue encontrar sobre `gnu.org` e em que *nameservers*.
 
-3. O dig executa o protocolo DNS, que pode ser transportado tanto sobre UDP como sobre TCP. Ao fazer o pedido dig gnu.org, sao enviados e recebidos pacotes sobre TCP ou UDP? Qual a porta a que sao enviados os pacotes pelo pc1?
-
+3. O dig executa o protocolo DNS, que pode ser transportado tanto sobre UDP como sobre TCP.
+Ao fazer o pedido `dig gnu.org`, são enviados e recebidos pacotes sobre TCP ou UDP?
+Qual a porta para a qual são enviados os pacotes pelo `pc1`?
 
 4. Neste lab existem as seguintes zonas de DNS:
 + *(root)
@@ -115,7 +126,7 @@ Este tipo de ataques no geral e utilizado para contornar proteccoes de browsers.
 
 ## Referências
 
--   Kathara, [https://github.com/KatharaFramework/Kathara/wiki][1]
+-   Kathará, [https://github.com/KatharaFramework/Kathara/wiki][1]
 
 -   BIND, [https://wiki.debian.org/Bind9][2]
 
