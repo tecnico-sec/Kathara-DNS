@@ -132,11 +132,11 @@ Ponha este `pc` a fazer *pings* ao `routeralameda` repetidamente:
 
 ```bash
 while true; do 
-  ping -c 1 dnsalameda.sirs.org;
+  ping -c 1 pc1.sirs.org;
 done
 ```
 
-2. Usar *Wireshark* para observar que, por cada pacote enviado, é feito um pedido DNS pelo IP `dnsalameda.sirs.org`.
+2. Usar *Wireshark* para observar que, por cada pacote enviado, é feito um pedido DNS pelo IP `pc1.sirs.org`.
 
 3. Observe no *tcpdump*/*Wireshark* os pacotes recebidos e pense como os modificaria para trocar o IP na resposta.
 
