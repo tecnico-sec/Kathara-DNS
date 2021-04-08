@@ -89,7 +89,7 @@ Compare com o contéudo das teóricas, mas antes de prosseguir garanta que enten
 2. Crie um novo pc, `pc2` e ligue-o ao *router* `routeralameda`.
 Pode ligar diretamente a uma interface física já existente, desde que fique dentro da rede interna).
 Atribua-lhe um endereço IP e configure o DNS para usar como servidor DNS principal o servidor `routeralameda`.
-Para configurar o DNS do `pc2`, apenas tem de indicar o servidor de DNS no ficheiro `/etc/resolve.conf`.
+Para configurar o DNS do `pc2`, apenas tem de indicar o servidor de DNS no ficheiro `/etc/resolv.conf`.
 
 3. Confirme que o `dig` continua a funcionar.
 
