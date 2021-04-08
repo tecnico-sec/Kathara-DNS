@@ -100,7 +100,7 @@ Para configurar o DNS do `pc2`, apenas tem de indicar o servidor de DNS no fiche
 1. Neste exercicio, vamos adicionar alguns novos nomes a servidores de DNS.
 Para confirmar que adicionou corretamente os nomes, pode executar o utilitário `dig` e confirmar que obtém uma resposta.
 
-2. Ponha `student.sirs.org` a apontar para o IP do `pc1` dentro da rede do Tagus.
+2. Ponha `student.sirs.org` a apontar para o IP do `pc1`.
 Que `db` modificou e em que máquina?
 
 3. Ponha `student.tagus.sirs.org.` a apontar para o IP do `pc2` dentro da rede da Alameda.
