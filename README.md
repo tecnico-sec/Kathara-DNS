@@ -127,12 +127,12 @@ De igual modo, tambem é possivel fazer com que a *cache* de um servidor de DNS 
 Neste exercício queremos observar um ataque simples em que nos ligamos a um cliente, esperamos que este faca um pedido DNS, e enviamos uma resposta errada.
 
 1. O nosso `pc1` é o cliente que queremos atacar.
-O nosso ataque consistirá em redirecionar um *ping* para o `pc` errado.
-Ponha este `pc` a fazer *pings* ao `routeralameda` repetidamente:
+O nosso ataque consistirá em redirecionar um *ping* para o pc errado.
+Ponha este `pc1` a fazer *pings* ao `routeralameda` repetidamente:
 
 ```bash
 while true; do 
-  ping -c 1 pc1.sirs.org;
+  ping -c 1 dns.alameda.sirs.org;
 done
 ```
 
