@@ -44,7 +44,7 @@ Observe os pedidos e resposta de DNS efetuados e indique que tipo de dados conse
 
 3. O dig executa o protocolo DNS, que pode ser transportado tanto sobre UDP como sobre TCP.
 Ao fazer o pedido `dig gnu.org`, são enviados e recebidos pacotes sobre TCP ou UDP?
-Qual a porta para a qual são enviados os pacotes pelo `pc1`?
+Qual a porta para a qual são enviados os pacotes pelo `pc1`? Use o comando `tcpdump -n` para os portos aparecerem em formato numérico.
 
 4. Neste lab existem as seguintes zonas de DNS:
 
@@ -91,7 +91,7 @@ Pode ligar diretamente a uma interface física já existente, desde que fique de
 Atribua-lhe um endereço IP e configure o DNS para usar como servidor DNS principal o servidor `routeralameda`.
 Para configurar o DNS do `pc2`, apenas tem de indicar o servidor de DNS no ficheiro `/etc/resolv.conf`.
 
-3. Confirme que o `dig` continua a funcionar.
+3. Confirme que o `dig` funciona no `pc2`.
 
 ---
 
@@ -136,7 +136,7 @@ while true; do
 done
 ```
 
-2. Usar *Wireshark* para observar que, por cada pacote enviado, é feito um pedido DNS pelo IP `pc1.sirs.org`.
+2. Usar *tcpdump*/*Wireshark* para observar que, por cada pacote enviado, é feito um pedido DNS pelo IP `pc1.sirs.org`.
 
 3. Observe no *tcpdump*/*Wireshark* os pacotes recebidos e pense como os modificaria para trocar o IP na resposta.
 
